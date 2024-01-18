@@ -1,0 +1,37 @@
+/* You can add global styles to this file, and also import other style files */
+@import "app/theme/styles/spinner";
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+@import "app/theme/styles/base";
+@import "app/theme/styles/spaces";
+@import "app/theme/styles/theme";
+@import "app/theme/styles/rtl";
+
+// import our custom components styles
+@import "app/theme/styles/components/components.scss";
+
+// font awesome
+@import "assets/fonts/font-awesome/css/all.css";
+
+/* Default theme. ~960B */
+@import '~@vime/core/themes/default.css';
+
+/* Optional light theme (extends default). ~400B */
+@import '~@vime/core/themes/light.css';
+
+//owl carousel
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+
+
+::ng-deep { .cdk-global-overlay-wrapper, .cdk-overlay-container { z-index: 9999!important; } }
+
+
+a.message-link {
+  color: #fff;
+  text-decoration: underline;
+  transition: 0.3s;
+}
+
+a.message-link:hover {
+  color: #7B7B7B;
+}

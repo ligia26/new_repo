@@ -1,0 +1,121 @@
+@import "src/app/theme/styles/components/_colors.scss";
+
+.background-container {
+  width: 100%;
+  position: relative;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(0deg, rgba($title, 0.48), rgba($title, 0.48));
+    //backdrop-filter: blur(2px);
+    //-webkit-backdrop-filter: blur(2px);
+  }
+
+  img {
+    height: 560px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .overlay-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 31px;
+
+    p {
+      margin-bottom: 0;
+      font-size: 64px;
+      font-weight: 700;
+      color: var(--primary-background);
+      line-height: 140%;
+
+      @media(max-width: 1200px) {
+        position: relative;
+        top: -70px;
+      }
+    }
+
+    app-resource-filter-bar {
+      position: absolute;
+      top: calc(50% + 70px);
+
+      @media(max-width: 1200px) {
+        top: 50%;
+      }
+    }
+  }
+
+}
+
+  ::ng-deep .map-dialog .mat-mdc-dialog-surface.mdc-dialog__surface{
+    overflow: hidden!important;
+  }
+
+
+
+.resource-card-map{
+  img{
+    width: 320px;
+    height: 192px;
+  }
+
+  h3{
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 120%;
+    color: $primary-color;
+  }
+  h4{
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 140%;
+    color: $paragraph;
+  }
+
+  p{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    /* or 22px */
+
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.02em;
+    color: $paragraph;
+  }
+}
+
+.content-container {
+  background-color: var(--primary-background);
+  padding-top: 48px;
+  padding-bottom: 48px;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  row-gap: 64px;
+
+  button{
+    min-width: fit-content;
+  }
+}
+
+
+
+.map-container{
+  height:100px;
+  background-image: url("../../../../assets/images/others/google-maps-blur-min.png");
+
+}

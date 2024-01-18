@@ -1,0 +1,23 @@
+.card {
+  height: 100%;
+  & div {
+    background-color: white;
+  }
+}
+
+.logo img.not-mobile{
+  width: 200px;
+  height:auto;
+}
+
+#main-toolbar {
+  position: absolute;
+}
+
+@media only screen and (max-width: 768px) {
+  #main-toolbar {
+    display: none;
+  }
+
+
+}

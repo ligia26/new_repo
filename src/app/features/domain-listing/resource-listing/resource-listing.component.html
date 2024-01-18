@@ -1,0 +1,33 @@
+<div class="d-flex flex-column">
+
+    <div *ngIf="resourceTypeData" class="background-container">
+        <img [src]="resourceTypeData?.image?.filePath" alt="category-background-image">
+        <div class="overlay-elements">
+            <p>{{ currentLanguage === 'ro' ? resourceTypeData.nameRo : resourceTypeData.nameEn }}</p>
+            <app-resource-filter-bar (filtersSubmitted)="scrollResourcesListIntoView()"></app-resource-filter-bar>
+        </div>
+    </div>
+
+    <div class="content-container">
+
+        <div class="container">
+            <app-resources-carousel></app-resources-carousel>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-3">
+                    <div class="map-container d-flex justify-content-center align-items-center mb-4">
+                        <button (click)="openMap()" class="btn-long btn-color-fill">See on map</button>
+                    </div>
+                    <app-sidebar-filters (filtersSubmitted)="scrollResourcesListIntoView()"></app-sidebar-filters>
+                </div>
+
+                <div class="col-12 col-lg-9" #resourcesList>
+                    <app-resources-list></app-resources-list>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,121 @@
+<div class="footer">
+  <div class="container">
+    <div
+      class="contact d-flex justify-content-center justify-content-sm-between align-items-center flex-wrap"
+    >
+      <div>
+        <h1 class="">
+          {{ "FOOTER.QUESTIONS" | translate }}
+        </h1>
+
+        <p class="m-0">
+          {{ "FOOTER.CONTACT_US" | translate }}
+          <strong><a href="tel:+40 722 670 826">+40 722 670 826</a></strong>
+        </p>
+      </div>
+
+      <div class="social-media-icons">
+        <a
+          href="https://www.facebook.com/profile.php/?id=100076116217462"
+          target="_blank"
+        >
+          <i class="fab fa-facebook"></i
+        ></a>
+        <a
+          href="https://instagram.com/bestinform.app?igshid=MzRlODBiNWFlZA=="
+          target="_blank"
+          ><i class="fab fa-instagram"></i
+        ></a>
+        <a href="https://www.tiktok.com/@bestinform" target="_blank"
+          ><i class="fab fa-tiktok"></i
+        ></a>
+        <!--                <i class="fab fa-youtube"></i>-->
+        <!--                <i class="fab fa-twitter"></i>-->
+        <img
+          src="assets/images/logos/google play.png"
+          alt="google play"
+          width="139"
+          height="40"
+        />
+        <img
+          src="assets/images/logos/app store.png"
+          alt="app store"
+          width="138"
+          height="40"
+        />
+      </div>
+    </div>
+
+    <div class="row justify-content-between menu-links">
+      <div
+        class="w-fit-content d-flex flex-column align-items-center align-items-sm-start"
+      >
+        <h5>
+          <strong>{{ "FOOTER.ABOUT_BESTINFORM" | translate }}</strong>
+        </h5>
+        <a
+          href="/content/privacy-policy"
+          target="_blank"
+          >{{ "FOOTER.PRIVACY" | translate }}</a
+        >
+        <a
+          href="/content/terms-and-conditions"
+          target="_blank"
+          >{{ "FOOTER.TERMS" | translate }}</a
+        >
+      </div>
+
+      <div
+        class="w-fit-content d-flex flex-column align-items-center align-items-sm-start"
+      >
+        <h5>
+          <strong>{{ "FOOTER.PROVIDERS" | translate }}</strong>
+        </h5>
+        <a href="/newsletter/ro" target="_blank">{{
+          "FOOTER.BECOME_PARTNER" | translate
+        }}</a>
+        <a href="/provideroffer/ro" target="_blank">{{
+          "FOOTER.BENEFITS" | translate
+        }}</a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div
+        class="col-12 d-flex flex-column align-items-center align-items-sm-start"
+      >
+        <mat-form-field appearance="outline">
+          <mat-select
+            [(ngModel)]="selectedValue"
+            (selectionChange)="changeLang(selectedValue)"
+          >
+            <mat-option [value]="'ro'"
+              ><i class="fas fa-globe-europe"></i> Română</mat-option
+            >
+            <mat-option [value]="'en'"
+              ><i class="fas fa-globe-europe"></i> Engleză</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+
+        <h5 class="mb-3"><strong>Bestinform</strong> Romania</h5>
+
+        <div
+          class="d-flex justify-content-center align-items-center w-100 ue-container"
+        >
+          <img
+            src="assets/images/logos/fonduri-ue.png"
+            width="323"
+            height="73"
+          />
+          <p class="mb-0">
+            {{ "FOOTER.EU_INFO" | translate }}
+            <a href="https://www.fonduri-ue.ro/" target="_blank"
+              >www.fonduri-ue.ro
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

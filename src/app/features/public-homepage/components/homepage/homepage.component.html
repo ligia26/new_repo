@@ -1,0 +1,269 @@
+<main [class.content-offset-to-top]="true">
+
+    <app-public-header [redirectUrl]="redirectUrl" [userConnected]="userConnected"></app-public-header>
+
+
+    <app-hero-section *ngIf="hero?.backgroundImage.filePath"
+                      [backgroundImage]=hero?.backgroundImage.filePath
+                      [title]=hero?.title
+                      [desc]=hero?.contentText
+                      [fullscreen]="true"
+                      [buttonText]=hero?.buttonText
+                      [redirectUrl]="redirectUrl"
+                      [userConnected]="userConnected">
+    </app-hero-section>
+
+
+    <!--Benefits section-->
+
+    <div class="container-fluid phb-benefits py-10">
+        <div class="container">
+            <div class="row">
+                <div class="col col-title">
+                    <h1 class="section-title public-homepage-section-title">{{ 'HOMEPAGE.BENEFITS' | translate }}</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <h2>
+                        <mat-icon>play_arrow</mat-icon>
+                        {{benefits[0]?.title}}</h2>
+                    <p class="mt-2">{{benefits[0]?.content}}</p>
+                </div>
+                <div class="col-6">
+                    <h2>
+                        <mat-icon>play_arrow</mat-icon>
+                        {{benefits[2]?.title}}</h2>
+                    <p class="mt-2">{{benefits[2]?.content}}</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <h2>
+                        <mat-icon>play_arrow</mat-icon>
+                        {{benefits[1]?.title}}</h2>
+                    <p class="mt-2">{{benefits[1]?.content}}</p>
+                </div>
+                <div class="col-6">
+                    <h2>
+                        <mat-icon>play_arrow</mat-icon>
+                        {{benefits[3]?.title}}</h2>
+                    <p class="mt-2">{{benefits[3]?.content}}</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!--Gallery text-->
+
+    <div class="container-fluid gallery-text-section py-10">
+        <div class="container pb-5">
+            <div class="row">
+                <h1 class="section-title col-title mb-0">{{ 'HOMEPAGE.GALLERY' | translate }}</h1>
+                <p class="py-2">{{gallery?.textContent}}</p>
+            </div>
+        </div>
+
+        <!-----------gallery text end------------------->
+
+        <!--Gallery video-->
+
+        <div *ngIf="gotVideo && afterViewInitialized" class="container-fluid gallery-video-section">
+            <div class="container">
+                <div class="parent video-img-container">
+                    <div class="div1" *ngIf="gallery?.videos[0].filePath === playedVideo">
+                        <!-- <div class="col-10 w-100 big-video" *ngIf="gotVideo && playedVideo"> -->
+                        <div class="col-10 w-100 big-video">
+<!--                            <vm-player>-->
+<!--                                <vm-video poster={{gallery?.videos[0].featuredImagePath}}>-->
+<!--                                    <source data-src={{gallery?.videos[0].filePath}} type="video/mp4"/>-->
+<!--                                    <track-->
+<!--                                            default-->
+<!--                                    />-->
+<!--                                </vm-video>-->
+<!--                                <vm-default-ui no-click-to-play>-->
+<!--                                </vm-default-ui>-->
+<!--                            </vm-player>-->
+                            <video [src]="gallery?.videos[0].filePath"
+                                   [poster]="gallery?.videos[0].featuredImagePath" autoplay muted loop playsinline controls></video>
+                        </div>
+                    </div>
+
+                    <div class="div1" *ngIf="gallery?.videos[1].filePath === playedVideo">
+                        <!-- <div class="col-10 w-100 big-video" *ngIf="gotVideo && playedVideo"> -->
+                        <div class="col-10 w-100 big-video">
+                            <video [poster]="gallery?.videos[1].featuredImagePath"
+                                   [src]="gallery?.videos[1].filePath" autoplay muted loop playsinline controls>
+                            </video>
+<!--                            <vm-player>-->
+<!--                                <vm-video poster={{gallery?.videos[1].featuredImagePath}}>-->
+<!--                                    <source data-src={{gallery?.videos[1].filePath}} type="video/mp4"/>-->
+<!--                                    <track-->
+<!--                                            default-->
+<!--                                    />-->
+<!--                                </vm-video>-->
+<!--                                <vm-default-ui no-click-to-play>-->
+<!--                                </vm-default-ui>-->
+<!--                            </vm-player>-->
+                        </div>
+                    </div>
+
+                    <div class="div1" *ngIf="gallery?.videos[2].filePath === playedVideo">
+                        <!-- <div class="col-10 w-100 big-video" *ngIf="gotVideo && playedVideo"> -->
+                        <div class="col-10 w-100 big-video">
+<!--                            <vm-player>-->
+<!--                                <vm-video poster={{gallery?.videos[2].featuredImagePath}}>-->
+<!--                                    <source data-src={{gallery?.videos[2].filePath}} type="video/mp4"/>-->
+<!--                                    <track-->
+<!--                                            default-->
+<!--                                    />-->
+<!--                                </vm-video>-->
+<!--                                <vm-default-ui no-click-to-play>-->
+<!--                                </vm-default-ui>-->
+<!--                            </vm-player>-->
+                            <video [poster]="gallery?.videos[2].featuredImagePath"
+                                   [src]="gallery?.videos[2].filePath" autoplay muted loop playsinline controls>
+                            </video>
+                        </div>
+                    </div>
+
+                    <div class="div1" *ngIf="gallery?.videos[3].filePath === playedVideo">
+                        <!-- <div class="col-10 w-100 big-video" *ngIf="gotVideo && playedVideo"> -->
+                        <div class="col-10 w-100 big-video">
+<!--                            <vm-player>-->
+<!--                                <vm-video poster={{gallery?.videos[3].featuredImagePath}}>-->
+<!--                                    <source data-src={{gallery?.videos[3].filePath}} type="video/mp4"/>-->
+<!--                                    <track-->
+<!--                                            default-->
+<!--                                    />-->
+<!--                                </vm-video>-->
+<!--                                <vm-default-ui no-click-to-play>-->
+<!--                                </vm-default-ui>-->
+<!--                            </vm-player>-->
+                            <video [poster]="gallery?.videos[3].featuredImagePath"
+                                   [src]="gallery?.videos[3].filePath" autoplay muted loop playsinline controls>
+                            </video>
+                        </div>
+                    </div>
+
+                    <div class="div2 left-video">
+                        <img class="d-block w-100" src={{gallery?.videos[1].featuredImagePath}} alt="First slide">
+
+                        <div class="file-name"><span>{{gallery?.videos[1].fileName}}</span></div>
+                        <div class="icon" (click)="playVideo(gallery?.videos[1].filePath)"><i class="fa fa-play"
+                                                                                              aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="div3 left-video">
+                        <img class="d-block w-100" src={{gallery?.videos[2].featuredImagePath}} alt="First slide">
+
+                        <div class="file-name"><span>{{gallery?.videos[2].fileName}}</span></div>
+                        <div class="icon" (click)="playVideo(gallery?.videos[2].filePath)"><i class="fa fa-play"
+                                                                                              aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="div4 left-video">
+                        <img class="d-block w-100" src={{gallery?.videos[0].featuredImagePath}} alt="First slide">
+
+                        <div class="file-name"><span>{{gallery?.videos[0].fileName}}</span></div>
+                        <div class="icon" (click)="playVideo(gallery?.videos[0].filePath)"><i class="fa fa-play"
+                                                                                              aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="div5 left-video">
+                        <img class="d-block w-100" src={{gallery?.videos[3].featuredImagePath}} alt="First slide">
+                        <div class="file-name"><span>{{gallery?.videos[3].fileName}}</span></div>
+                        <div class="icon" (click)="playVideo(gallery?.videos[3].filePath)"><i class="fa fa-play"
+                                                                                              aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <!--------mobile---------------->
+
+                    <div class="wrap-videos">
+                        <div class="mobile-video">
+                            <img class="d-block w-100" src={{gallery?.videos[1].featuredImagePath}} alt="First slide">
+
+                            <div class="file-name"><span>{{gallery?.videos[1].fileName}}</span></div>
+                            <div class="icon" (click)="playVideo(gallery?.videos[1].filePath)"><i class="fa fa-play"
+                                                                                                  aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="mobile-video">
+                            <img class="d-block w-100" src={{gallery?.videos[2].featuredImagePath}} alt="First slide">
+                            <div class="file-name"><span>{{gallery?.videos[2].fileName}}</span></div>
+                            <div class="icon" (click)="playVideo(gallery?.videos[2].filePath)"><i class="fa fa-play"
+                                                                                                  aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="mobile-video">
+                            <img class="d-block w-100" src="{{gallery?.videos[0].featuredImagePath}}" alt="First slide">
+                            <div class="file-name"><span>{{gallery?.videos[0].fileName}}</span></div>
+                            <div class="icon" (click)="playVideo(gallery?.videos[0].filePath)"><i class="fa fa-play"
+                                                                                                  aria-hidden="true"></i>
+                            </div>
+
+                        </div>
+                        <div class="mobile-video">
+                            <img class="d-block w-100" src={{gallery?.videos[3].featuredImagePath}} alt="First slide">
+                            <div class="file-name"><span>{{gallery?.videos[3].fileName}}</span></div>
+                            <div class="icon" (click)="playVideo(gallery?.videos[3].filePath)"><i class="fa fa-play"
+                                                                                                  aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!--Free trial-->
+
+    <div class="container-fluid free-trial-section-hpb py-10">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col md-6 free-trial-text">
+                    <h1 class="section-title py-2">{{trialSection?.mainTitle}}</h1>
+                    <h1 class="section-title second-title-trial py-2">{{trialSection?.subTitle}}</h1>
+                    <p class="py-2">{{trialSection?.content}}</p>
+                    <div class="d-flex free-trial-button-container py-2">
+                        <button class="btn-long btn-color-outline" (click)="openAuthModal()">
+                            {{ trialSection?.buttonText }} <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="col md-6 free-trial-img" *ngIf="trialSection?.image?.filePath">
+                    <img [lazyLoad]="trialSection?.image?.filePath" alt="freeTrial"
+                         class="mw-100 d-block" width="612" height="480">
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <!--Become provider-->
+
+    <div class="container-fluid became-provider py-10">
+        <div class="container">
+            <div class="became-provider-container">
+                <div class="row became-provider-title justify-content-center">
+                    <h1 class="section-title mb-0 px-0"><span style="color:white">{{c2a[0]}}</span> <span
+                            style="color:#FFCC04"> {{c2a[1]}}</span></h1>
+                    <p class="mb-0">{{callToAction?.content}}</p>
+                </div>
+                <div class="row">
+                    <button (click)="openProviderRegister()" class="btn-long btn-white-fill w-fit-content" >
+                        <!-- <span>{{ 'REGISTER' | translate }} <i class="fa fa-arrow-right" aria-hidden="true"></i></span> -->
+                        {{ callToAction?.buttonText }} <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

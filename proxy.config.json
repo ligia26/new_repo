@@ -1,0 +1,8 @@
+{
+  "/bestinform/*": {
+    "target": "https://bestinform.eu",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  }
+}

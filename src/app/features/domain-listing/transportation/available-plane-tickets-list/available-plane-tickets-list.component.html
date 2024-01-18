@@ -1,0 +1,112 @@
+
+<div class="airplane-tickets-header">
+    <!-- <img *ngIf="eventData?.featuredImage?.filePath"
+    [src]="eventData.featuredImage.filePath" class="thumbnail" alt="thumbnail"> -->
+</div>
+
+
+<div class="content-container">
+    <div class="container">
+        <div class="d-flex justify-content-center align-items-center my-4">
+            <h2>{{'TRANSPORT.PLANE_TICKET' | translate}}</h2>
+        </div>
+    </div>
+    <div class="d-flex gap-4 container flex-column flex-md-row">
+        <!--filter tickets -->
+        <div class="col-md-3 d-flex flex-column">
+            <div class="filter-tickets-container">
+                <h4>Tip zbor</h4>
+                <mat-checkbox>Zbor direct</mat-checkbox>
+                <mat-checkbox>Cu escală</mat-checkbox>
+
+<!--                <h4>Rating range</h4>-->
+<!--                <mat-checkbox formControlName="rate1">&lt; 25%</mat-checkbox>-->
+<!--                <mat-checkbox formControlName="rate2">25 - 50%</mat-checkbox>-->
+<!--                <mat-checkbox formControlName="rate3">50 - 75%</mat-checkbox>-->
+<!--                <mat-checkbox formControlName="rate4">>&gt; 75%</mat-checkbox>-->
+
+                <button class="btn-long btn-color-fill my-2"><i class="fas fa-check"></i> Apply</button>
+
+            </div>
+
+
+            <!--            <app-tickets-filter-sidebar></app-tickets-filter-sidebar>-->
+<!--            <app-ticket-filter-plus-sidebar></app-ticket-filter-plus-sidebar>-->
+        </div>
+        <!--tickets list / content-->
+        <div class="col-md-9">
+<!--            <app-location-card></app-location-card>-->
+
+            <h4 *ngIf="!flights">Se încarcă rezultatele...</h4>
+            <h4 *ngIf="flights?.length === 0">Nu au fost găsite rezultate pentru această căutare.</h4>
+
+            <div *ngFor="let flight of flights">
+
+                <div class="general-ticket-card">
+                    <div class="bkg-grey first-line">
+<!--                        <span *ngIf="flight?.oneWay">-->
+<!--                            One Way Ticket-->
+<!--                        </span>-->
+
+<!--                        <span *ngIf="flight?.itineraries?.length === 1 && flight?.itineraries?.[0].direct">-->
+<!--                            Direct Flight-->
+<!--                        </span>-->
+                    </div>
+                    <!--icon name airport-->
+                    <div class="bkg-white itinerary-row px-4" *ngFor="let itinerary of flight.itineraries; let i = index">
+                        <span class="indirect-flight-label" *ngIf="!flight?.itineraries?.[i].direct">Zbor cu escală ({{flight?.itineraries?.[i].segments.length - 1}})</span>
+                        <span class="direct-flight-label" *ngIf="flight?.itineraries?.[i].direct">Zbor direct</span>
+                        <div *ngFor="let segment of itinerary.segments" class="flight-row">
+                            <div  class="row align-items-center justify-space-between justify-content-between ">
+                                <div class="col-md-5 text-left">
+                                    <span>{{segment.departure.dateTime | date: 'd/M/yyyy, h:mm a' }}</span>
+                                    <h4>{{segment.departure.iataCode}}</h4>
+                                </div>
+
+                                <div class="d-flex flex-column align-items-center middle-col col-md-2">
+                                    <span>{{segment.company}}</span>
+                                    <span>
+                                        <i class="fas fa-arrow-right"></i>
+                                    </span>
+                                    <span>{{segment.duration | flightDuration}}</span>
+
+                                </div>
+
+                                <div class="col-md-5 text-right">
+                                    <span>{{segment.arrival.dateTime | date: 'd/M/yyyy, h:mm a' }}</span>
+                                    <h4>{{segment.arrival.iataCode}}</h4>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <!--fly data-->
+<!--                    <div class="bkg-grey d-flex justify-content-between align-items-center py-2 px-4 flex-column flex-md-row">-->
+<!--                        <div>-->
+<!--&lt;!&ndash;                            <p class="hour-1"> {{ticket?.departureDate | date: "HH:mm"}} <i class="fas fa-arrow-right"></i>  {{ticket?.arrivalDate | date: "HH:mm"}} </p>&ndash;&gt;-->
+<!--                        </div>-->
+<!--                        <div class="d-flex">-->
+<!--                            <p class="hour-2 d-flex align-items-center justify-content-center px-4"> <i class="far fa-clock"></i> {{ticket?.transportDuration | minutesToHours}}</p>-->
+<!--                            <div class="d-flex flex-column align-items-end" >-->
+<!--&lt;!&ndash;                                <p *ngIf="ticket?.stops===0" class="type-flight green">Direct</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <p *ngIf="ticket?.stops>0" class="type-flight red">{{ticket?.stops}} stops</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <p class="class-flight">clasa: {{ticket?.travelClass}}</p>&ndash;&gt;-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+                    <!--book now button and price  -->
+                    <div class="bkg-last-line d-flex justify-content-md-end align-items-center flex-column flex-md-row">
+                        <h4 class="d-flex align-items-center"> {{flight?.totalPrice}} {{flight?.currency}} <span><i class="far fa-question-circle"></i></span></h4>
+                        <button class="btn-long btn-color-fill">Book now</button>
+                    </div>
+                </div>
+            </div>
+
+
+<!--            <p>OLD -&#45;&#45;&#45;&#45;&#45;&#45;</p>-->
+<!--            <app-available-ticket-card></app-available-ticket-card>-->
+
+        </div>
+    </div>
+</div>
